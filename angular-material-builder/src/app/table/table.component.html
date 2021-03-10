@@ -1,0 +1,32 @@
+<p> {{ngModel.columns.length}} column{{ngModel.columns.length === 1 ? '' : 's'}} </p>
+<div style="display: flex; flex-flow: row nowrap; overflow: auto;" class="control-wrapper">
+    <div *ngFor="let c of ngModel.columns; let last = last; let first = first" style="display: flex; flex-flow: row nowrap">
+
+        <div style="display: inline-flex; flex-flow: column nowrap">
+
+            <mat-form-field>
+                <mat-label>Header Cell</mat-label>
+                <input matInput [(ngModel)]="c.header">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Cell</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+        </div>
+
+        <div *ngIf="last" style="display: inline-flex; flex-flow: column nowrap; justify-content: space-around;">
+
+            <button mat-icon-button (click)="addColumn()">
+                <mat-icon> add </mat-icon>
+            </button>
+
+            <button mat-icon-button [disabled]="first" (click)="delColumn()">
+                <mat-icon> delete </mat-icon>
+            </button>
+
+        </div>
+
+    </div>
+</div>
