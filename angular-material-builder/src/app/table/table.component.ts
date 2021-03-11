@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef, DoCheck } from '@angular/core';
+import { buildTableHtml, buildTableTs, TableType } from './table.helper';
 
-const NGMODEL = {
+export const NGMODEL: TableType = {
   columns: [{header: '', cell: ''}],
   options: [
     { label: 'hasSort', value: true },
@@ -8,9 +9,6 @@ const NGMODEL = {
     { label: 'hasFilter', value: true },
   ]
 };
-
-const buildTableHtml = (obj: typeof NGMODEL): string => { const a = {}; return ''; };
-const buildTableTs   = (obj: typeof NGMODEL): string => { const a = {}; return ''; };
 
 @Component({
   selector: 'amb-table',

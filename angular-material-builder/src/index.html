@@ -1,6 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
+
+  <script type="module">
+      import prettier from "https://unpkg.com/prettier@2.2.1/esm/standalone.mjs";
+      import parserBabel from "https://unpkg.com/prettier@2.2.1/esm/parser-babel.mjs";
+      import parserHtml from "https://unpkg.com/prettier@2.2.1/esm/parser-html.mjs";
+      import parserTs from "https://unpkg.com/prettier@2.2.1/esm/parser-typescript.mjs";
+    
+      window.prettier = (code, mode = 'angular') => prettier.format(code, {
+        parser: mode,
+        plugins: [ parserHtml ],
+      });
+    </script>
+
   <meta charset="utf-8">
   <title>AngularMaterialBuilder</title>
   <base href="/">

@@ -7,6 +7,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+
+import { ClipboardModule } from '@angular/cdk/clipboard';
+
 
 const _IMPORTS = [
   MatTableModule,
@@ -16,6 +20,8 @@ const _IMPORTS = [
   MatCheckboxModule,
   MatFormFieldModule,
   MatInputModule,
+  MatCardModule,
+  ClipboardModule,
 ];
 
 @NgModule({

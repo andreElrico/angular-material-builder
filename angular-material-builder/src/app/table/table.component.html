@@ -1,32 +1,85 @@
-<p> {{ngModel.columns.length}} column{{ngModel.columns.length === 1 ? '' : 's'}} </p>
-<div style="display: flex; flex-flow: row nowrap; overflow: auto;" class="control-wrapper">
-    <div *ngFor="let c of ngModel.columns; let last = last; let first = first" style="display: flex; flex-flow: row nowrap">
+<mat-card style="margin-bottom: 16px" class="float-hover">
 
-        <div style="display: inline-flex; flex-flow: column nowrap">
+    <mat-card-header>
+        <mat-card-title>{{ngModel.columns.length}} column{{ngModel.columns.length === 1 ? '' : 's'}}</mat-card-title>
+    </mat-card-header>
 
-            <mat-form-field>
-                <mat-label>Header Cell</mat-label>
-                <input matInput [(ngModel)]="c.header">
-            </mat-form-field>
+    <mat-card-content>
+        <div style="display: flex; flex-flow: row nowrap; overflow: auto; margin-bottom: 16px" class="control-wrapper">
+            <div *ngFor="let c of ngModel.columns; let last = last; let first = first" style="display: flex; flex-flow: row nowrap">
+
+                <div style="display: inline-flex; flex-flow: column nowrap">
+
+                    <mat-form-field>
+                        <mat-label>Header Cell</mat-label>
+                        <input matInput [(ngModel)]="c.header">
+                    </mat-form-field>
+            
+                    <mat-form-field>
+                        <mat-label>Cell</mat-label>
+                        <input matInput [(ngModel)]="c.cell">
+                    </mat-form-field>
+
+                </div>
+
+                <div *ngIf="last" style="display: inline-flex; flex-flow: column nowrap; justify-content: space-around;">
+
+                    <button mat-icon-button (click)="addColumn()">
+                        <mat-icon> add </mat-icon>
+                    </button>
+
+                    <button mat-icon-button [disabled]="first" (click)="delColumn()">
+                        <mat-icon> delete </mat-icon>
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card style="margin-bottom: 16px" class="float-hover">
+    <mat-card-header>
+        <mat-card-title> Select features </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(20ch ,1fr));">
+            <mat-checkbox *ngFor="let opt of ngModel.options" [(ngModel)]="opt.value"> {{opt.label}} </mat-checkbox>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<div class="result-grid">
+    <mat-card class="float-hover">
+        <mat-card-header>
+            <mat-card-title>
+                <div style="display:flex; flex-flow: row nowrap; align-items: center; justify-content: space-between">
+                    HTML
+                    <button mat-icon-button [cdkCopyToClipboard]="HtmlOutput.innerText"><mat-icon>content_copy</mat-icon></button>
+                </div> 
+            </mat-card-title>
+        </mat-card-header>
     
-            <mat-form-field>
-                <mat-label>Cell</mat-label>
-                <input matInput>
-            </mat-form-field>
-
-        </div>
-
-        <div *ngIf="last" style="display: inline-flex; flex-flow: column nowrap; justify-content: space-around;">
-
-            <button mat-icon-button (click)="addColumn()">
-                <mat-icon> add </mat-icon>
-            </button>
-
-            <button mat-icon-button [disabled]="first" (click)="delColumn()">
-                <mat-icon> delete </mat-icon>
-            </button>
-
-        </div>
-
-    </div>
+        <mat-card-content>
+            <pre #HtmlOutput>{{tableHtml}}</pre>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="float-hover">
+        <mat-card-header>
+            <mat-card-title>
+                <div style="display:flex; flex-flow: row nowrap; align-items: center; justify-content: space-between">
+                        TYPESCRIPT
+                        <button mat-icon-button [cdkCopyToClipboard]="TsOutput.innerText"><mat-icon>content_copy</mat-icon></button>
+                </div>
+            </mat-card-title>
+        </mat-card-header>
+    
+        <mat-card-content>
+            <mat-card-content>
+                <pre #TsOutput>{{tableTs}}</pre>
+            </mat-card-content>
+        </mat-card-content>
+    </mat-card>
 </div>
