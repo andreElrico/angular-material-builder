@@ -53,6 +53,7 @@
               "buildOptimizer": true,
               "outputPath": "demo",
               "deployUrl": "/angular-material-builder/angular-material-builder/demo/",
+              "baseHref": "/angular-material-builder/angular-material-builder/demo/",
               "budgets": [
                 {
                   "type": "initial",
