@@ -51,7 +51,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "outputPath": "prod/angular-material-builder",
+              "outputPath": "docs",
               "budgets": [
                 {
                   "type": "initial",
