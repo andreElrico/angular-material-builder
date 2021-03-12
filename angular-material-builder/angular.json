@@ -52,7 +52,7 @@
               "vendorChunk": false,
               "buildOptimizer": true,
               "outputPath": "demo",
-              "deployUrl": "/angular-material-builder/demo/",
+              "deployUrl": "/angular-material-builder/angular-material-builder/demo/",
               "budgets": [
                 {
                   "type": "initial",
