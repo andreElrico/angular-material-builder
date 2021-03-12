@@ -2,7 +2,12 @@ import { Component, OnInit, ChangeDetectorRef, DoCheck } from '@angular/core';
 import { buildTableHtml, buildTableTs, TableType } from './table.helper';
 
 export const NGMODEL: TableType = {
-  columns: [{header: '', cell: ''}],
+  columns: [
+    {header: 'No.',    cell: 'position'},
+    {header: 'Name',   cell: 'name'},
+    {header: 'Weight', cell: 'weight'},
+    {header: 'Symbol', cell: 'symbol'}
+  ],
   options: [
     { label: 'hasSort', value: true },
     { label: 'hasPaginator', value: true },
